@@ -7,7 +7,9 @@ local HttpService = game:GetService("HttpService")
 local TweenService = game:GetService("TweenService")
 
 -- ================= LOAD WINDUI =================
-local WindUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/nighthub00/nighthub/main/test.lua"))()
+local WindUI = loadstring(game:HttpGet(
+    "https://github.com/Footagesus/WindUI/releases/latest/download/main.lua"
+))()
 
 -- ================= SET FONT (IMPORTANT) =================
 -- WindUI text font
