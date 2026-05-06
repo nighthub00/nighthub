@@ -1,5 +1,5 @@
--- ================= XUAN HUB GUI (WindUI) =================
-print("--===== XUAN HUB LOADED (WindUI) =====--")
+-- ================= NIGHT HUB GUI (WindUI) =================
+print("--===== Night HUB LOADED (WindUI) =====--")
 
 local Players = game:GetService("Players")
 local player = Players.LocalPlayer
@@ -16,9 +16,9 @@ WindUI:SetFont("rbxasset://fonts/families/GothamSSm.json")
 
 -- Create the WindUI window
 local Window = WindUI:CreateWindow({
-    Folder = "XuanHub",
-    Title = "Xuan Hub",
-    Author = "by discord.gg/kaydensdens",
+    Folder = "NightHub",
+    Title = "Night Hub",
+    Author = "by gio",
     Icon = "rbxassetid://103326199885496",
     Theme = "Midnight",
     Size = UDim2.fromOffset(640, 480),
@@ -142,6 +142,21 @@ local BuySeedEvent = GameEvents and GameEvents:FindFirstChild("BuySeed") or nil
 local BuyGearEvent = GameEvents and GameEvents:FindFirstChild("BuyGear") or nil
 local BuyEggEvent = GameEvents and GameEvents:FindFirstChild("BuyEgg") or nil
 local BuyMerchantEvent = GameEvents and GameEvents:FindFirstChild("BuyMerchant") or nil
+
+-- Debug logging
+print("[Shop Debug] GameEvents found:", GameEvents ~= nil)
+print("[Shop Debug] BuySeedEvent found:", BuySeedEvent ~= nil)
+print("[Shop Debug] BuyGearEvent found:", BuyGearEvent ~= nil)
+print("[Shop Debug] BuyEggEvent found:", BuyEggEvent ~= nil)
+print("[Shop Debug] BuyMerchantEvent found:", BuyMerchantEvent ~= nil)
+
+-- List all children in GameEvents if it exists
+if GameEvents then
+    print("[Shop Debug] GameEvents children:")
+    for _, child in ipairs(GameEvents:GetChildren()) do
+        print("  - " .. child.Name)
+    end
+end
 
 local SeedItems = {
     "Carrot","Strawberry","Blueberry","Buttercup","Tomato","Corn",
