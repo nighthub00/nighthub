@@ -187,6 +187,13 @@ local MerchantItems = {
     ["Sprinkler Merchant"] = {"Tropical Mist Sprinkler","Berry Sprinklers"}
 }
 
+-- Debug item lists
+print("[Shop Debug] SeedItems count:", #SeedItems)
+print("[Shop Debug] GearItems count:", #GearItems)
+print("[Shop Debug] EggItems count:", #EggItems)
+if #SeedItems > 0 then print("[Shop Debug] First seed:", SeedItems[1]) end
+if #GearItems > 0 then print("[Shop Debug] First gear:", GearItems[1]) end
+
 local function safeFire(event, param)
     if not event then return end
     pcall(function()
@@ -222,10 +229,11 @@ local selectedSeed = nil
 local AutoBuySeedSelectedEnabled = false
 local AutoBuySeedAllEnabled = false
 
+print("[Shop Debug] Creating Seed dropdown with", #SeedItems, "items")
 SeedSection:Dropdown({
     Title = "Select Seed",
     Options = SeedItems,
-    Callback = function(opt) selectedSeed = opt end
+    Callback = function(opt) selectedSeed = opt; print("[Shop Debug] Selected seed:", opt) end
 })
 SeedSection:Button({ Title = "Select All", Callback = function() selectedSeed = "ALL" end })
 SeedSection:Button({ Title = "Unselect All", Callback = function() selectedSeed = nil end })
